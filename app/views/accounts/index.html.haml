@@ -2,6 +2,7 @@
 
 %table
   %tr
+    %th Name
     %th Username
     %th Access key
     %th Base url
@@ -14,6 +15,7 @@
 
   - @accounts.each do |account|
     %tr
+      %td= account.name
       %td= account.username
       %td= account.access_key
       %td= account.base_url

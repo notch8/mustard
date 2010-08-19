@@ -10,7 +10,7 @@
 
   - @test_cases.each do |test_case|
     %tr
-      %td= test_case.account.base_url
+      %td= test_case.account.name
       %td= test_case.name
       %td= link_to 'Show', test_case
       %td= link_to 'Edit', edit_test_case_path(test_case)
