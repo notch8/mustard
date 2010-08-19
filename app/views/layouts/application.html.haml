@@ -17,7 +17,12 @@
           %li=link_to 'targets', targets_path
           %li=link_to 'accounts', accounts_path
           %li=link_to 'test cases', test_cases_path
-      #content= yield
+      #content
+        - if notice
+          %p.notice=notice
+        -if alert
+          %p.notice=alert
+        = yield
       #footer
 
     %script{ :type => "text/javascript", :src => "http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js" }

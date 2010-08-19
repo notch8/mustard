@@ -43,3 +43,5 @@ gem "hoptoad_notifier", ">=2.3.3"
 gem "inploy"
 gem "rails3-generators", :git => "git://github.com/indirect/rails3-generators.git"
 gem "selenium-client", :require => "selenium/client"
+
+gem "delayed_job", :git => "git://github.com/collectiveidea/delayed_job.git"

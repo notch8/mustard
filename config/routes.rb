@@ -1,4 +1,6 @@
 New::Application.routes.draw do |map|
+  devise_for :users
+
   resources :test_targets
 
   resources :test_runs
