@@ -1,0 +1,22 @@
+%p
+  %b Username:
+  = @account.username
+%p
+  %b Access key:
+  = @account.access_key
+%p
+  %b Base url:
+  = @account.base_url
+%p
+  %b Timeout:
+  = @account.timeout
+%p
+  %b Host:
+  = @account.host
+%p
+  %b Port:
+  = @account.port
+
+= link_to 'Edit', edit_account_path(@account)
+\|
+= link_to 'Back', accounts_path

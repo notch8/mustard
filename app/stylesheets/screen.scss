@@ -79,5 +79,13 @@ body {
       margin: 0;
       list-style-type: none;
     }
+    
+    li {
+      list-style-type: none;
+    }
+    
+    .column{
+      @include column(2);
+    }
   }
 }

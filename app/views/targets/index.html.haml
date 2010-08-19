@@ -1,0 +1,23 @@
+%h1 Listing targets
+
+%table
+  %tr
+    %th Os
+    %th Browser
+    %th Browser version
+    %th
+    %th
+    %th
+
+  - @targets.each do |target|
+    %tr
+      %td= target.os
+      %td= target.browser
+      %td= target.browser_version
+      %td= link_to 'Show', target
+      %td= link_to 'Edit', edit_target_path(target)
+      %td= link_to 'Destroy', target, :confirm => 'Are you sure?', :method => :delete
+
+%br
+
+= link_to 'New target', new_target_path

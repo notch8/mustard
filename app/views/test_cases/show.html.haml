@@ -1,0 +1,37 @@
+%h1
+  = @test_case.name
+  = button_to 'Run', run_test_case_path(@test_case) 
+%table
+  %thead
+    %th Job ID
+    %th Target
+    %th Run On
+    %th &nbsp;
+  %tfoot
+  %tbody
+    - @test_case.test_runs.all(:order => "created_at DESC").each do |run|
+      %tr
+        %td=run.job_id
+        %td=run.target.name
+        %td=run.created_at
+        %td=link_to "Sauce Link", run.url, :target => "blank"
+
+%p
+  %b Account:
+  = @test_case.account.base_url
+%p
+  %b Name:
+  = @test_case.name
+%p
+  %b Content:
+  =simple_format @test_case.content
+
+%p
+  %b Targets:
+  %ul
+    - @test_case.targets.each do |target|
+      %li= target.name
+
+= link_to 'Edit', edit_test_case_path(@test_case)
+\|
+= link_to 'Back', test_cases_path

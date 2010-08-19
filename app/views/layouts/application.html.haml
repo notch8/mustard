@@ -10,10 +10,16 @@
     = csrf_meta_tag
   %body
     #container
-      #header HEADER
-      #sidebar SIDEBAR
+      #header
+        %h1.title Mustard - A Sauce Test Runner
+      #sidebar
+        %ul
+          %li=link_to 'targets', targets_path
+          %li=link_to 'accounts', accounts_path
+          %li=link_to 'test cases', test_cases_path
       #content= yield
-      #footer FOOTER
+      #footer
+
     %script{ :type => "text/javascript", :src => "http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js" }
     %script{ :type => "text/javascript", :src => "http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.1/jquery-ui.min.js" }
     = raw javascript_include_merged(:base)

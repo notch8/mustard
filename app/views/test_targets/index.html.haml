@@ -1,0 +1,21 @@
+%h1 Listing test_targets
+
+%table
+  %tr
+    %th Test case
+    %th Target
+    %th
+    %th
+    %th
+
+  - @test_targets.each do |test_target|
+    %tr
+      %td= test_target.test_case_id
+      %td= test_target.target_id
+      %td= link_to 'Show', test_target
+      %td= link_to 'Edit', edit_test_target_path(test_target)
+      %td= link_to 'Destroy', test_target, :confirm => 'Are you sure?', :method => :delete
+
+%br
+
+= link_to 'New test_target', new_test_target_path

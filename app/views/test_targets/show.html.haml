@@ -1,0 +1,10 @@
+%p
+  %b Test case:
+  = @test_target.test_case_id
+%p
+  %b Target:
+  = @test_target.target_id
+
+= link_to 'Edit', edit_test_target_path(@test_target)
+\|
+= link_to 'Back', test_targets_path

@@ -1,0 +1,21 @@
+%h1 Listing test_cases
+
+%table
+  %tr
+    %th Account
+    %th Name
+    %th
+    %th
+    %th
+
+  - @test_cases.each do |test_case|
+    %tr
+      %td= test_case.account.base_url
+      %td= test_case.name
+      %td= link_to 'Show', test_case
+      %td= link_to 'Edit', edit_test_case_path(test_case)
+      %td= link_to 'Destroy', test_case, :confirm => 'Are you sure?', :method => :delete
+
+%br
+
+= link_to 'New test_case', new_test_case_path

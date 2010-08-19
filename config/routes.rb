@@ -1,4 +1,18 @@
 New::Application.routes.draw do |map|
+  resources :test_targets
+
+  resources :test_runs
+
+  resources :test_cases do
+    member do
+      post :run
+    end
+  end
+
+  resources :accounts
+
+  resources :targets
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -48,7 +62,7 @@ New::Application.routes.draw do |map|
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  # root :to => "welcome#index"
+  root :to => "test_cases#index"
 
   # See how all your routes lay out with "rake routes"
 

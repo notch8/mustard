@@ -1,0 +1,13 @@
+%p
+  %b Os:
+  = @target.os
+%p
+  %b Browser:
+  = @target.browser
+%p
+  %b Browser version:
+  = @target.browser_version
+
+= link_to 'Edit', edit_target_path(@target)
+\|
+= link_to 'Back', targets_path

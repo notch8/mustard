@@ -1,0 +1,22 @@
+= form_for @test_case do |f|
+  -if @test_case.errors.any?
+    #errorExplanation
+      %h2= "#{pluralize(@test_case.errors.count, "error")} prohibited this test_case from being saved:"
+      %ul
+        - @test_case.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :account_id, 'Account'
+    = f.select :account_id, Account.all.collect {|a| [ a.base_url, a.id ] }, { :include_blank => true }
+  .field
+    = f.label :name
+    = f.text_field :name
+  .field
+    = f.label :content
+    = f.text_area :content
+  .field
+    = f.label :test_target_set, "Targets"
+    = f.collection_select(:test_target_set, Target.all, :id, :name, {}, {:multiple => true, :size => 20})
+  .actions
+    = f.submit 'Save'
