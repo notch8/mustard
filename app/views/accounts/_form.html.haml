@@ -26,6 +26,6 @@
   .field
     = f.label :port
     = f.text_field :port
-  = f.hidden_field :user_id, current_user.id
+  = f.hidden_field :user_id, :value => current_user.id
   .actions
     = f.submit 'Save'

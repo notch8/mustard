@@ -18,6 +18,6 @@
   .field
     = f.label :test_target_set, "Targets"
     = f.collection_select(:test_target_set, Target.all, :id, :name, {}, {:multiple => true, :size => 20})
-  = f.hidden_field :user_id, current_user.id
+  = f.hidden_field :user_id, :value => current_user.id
   .actions
     = f.submit 'Save'
