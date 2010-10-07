@@ -39,9 +39,8 @@ gem "remarkable_activerecord", ">=4.0.0.alpha4", :group => :test
 gem "factory_girl_rails"
 gem "database_cleaner", ">=0.5.0", :group => :cucumber
 gem "spork", ">=0.8.4", :group => :cucumber
-gem "hoptoad_notifier", ">=2.3.3"
 gem "inploy"
 gem "rails3-generators", :git => "git://github.com/indirect/rails3-generators.git"
 gem "selenium-client", :require => "selenium/client"
-
+gem "exceptional"
 gem "delayed_job", :git => "git://github.com/collectiveidea/delayed_job.git"
