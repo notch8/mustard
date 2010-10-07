@@ -87,5 +87,9 @@ body {
     .column{
       @include column(2);
     }
+    
+  }
+  tr.failed{
+    color: red;
   }
 }

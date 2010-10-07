@@ -10,7 +10,7 @@
   %tfoot
   %tbody
     - @test_case.test_runs.all(:order => "created_at DESC").each do |run|
-      %tr
+      %tr{:class => run.error.blank? ? '' : 'failed' }
         %td=run.job_id
         %td=run.target.name
         %td=run.created_at

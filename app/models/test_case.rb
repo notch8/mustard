@@ -24,13 +24,13 @@ class TestCase < ActiveRecord::Base
     self.targets.each do |target|
       begin
         setup(target)
-        self.content.each_line do |cont|
-          eval(cont)
-        end
+        # self.content.each_line do |cont|
+          self.instance_eval(self.content)
+        # end
         self.test_runs.create!(:job_id => page.session_id, :target => target)
       rescue Exception => e
         logger.error "============== test case: #{self.id} target: #{target.id} had an error\n#{e.message}\n#{e.backtrace}"
-        raise e
+        self.test_runs.create!(:job_id => page.session_id, :target => target, :error => "#{e.message}\n\n#{e.backtrace}")
       ensure
         self.selenium_driver.close_current_browser_session if self.selenium_driver
       end
