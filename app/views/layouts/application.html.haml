@@ -17,6 +17,7 @@
           %li=link_to 'targets', targets_path
           %li=link_to 'accounts', accounts_path
           %li=link_to 'test cases', test_cases_path
+          %li=link_to "log out", destroy_user_session_path
       #content
         - if notice
           %p.notice=notice

@@ -17,17 +17,17 @@
         %td=link_to "Sauce Link", run.url, :target => "blank"
 
 %p
-  %b Account:
-  = @test_case.account.name if @test_case.account
+  %h2 Account:
+  = @test_case.account.username if @test_case.account
 %p
-  %b Name:
+  %h2 Name:
   = @test_case.name
 %p
-  %b Content:
+  %h2 Content:
   =simple_format @test_case.content
 
 %p
-  %b Targets:
+  %h2 Targets:
   %ul
     - @test_case.targets.each do |target|
       %li= target.name

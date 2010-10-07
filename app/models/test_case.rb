@@ -1,4 +1,5 @@
 class TestCase < ActiveRecord::Base
+  belongs_to :user
   attr_accessor :selenium_driver, :test_target_set
   alias_method :page, :selenium_driver
   
