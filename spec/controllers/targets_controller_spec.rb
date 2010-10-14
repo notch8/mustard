@@ -1,6 +1,11 @@
 require 'spec_helper'
 
 describe TargetsController do
+  include Devise::TestHelpers
+
+  before(:each) do
+    sign_in(Factory.create(:user))
+  end
 
   def mock_target(stubs={})
     @mock_target ||= mock_model(Target, stubs).as_null_object

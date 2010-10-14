@@ -1,6 +1,11 @@
 require 'spec_helper'
 
 describe AccountsController do
+  include Devise::TestHelpers
+  
+  before(:each) do
+    sign_in(Factory.create(:user))
+  end
 
   def mock_account(stubs={})
     @mock_account ||= mock_model(Account, stubs).as_null_object

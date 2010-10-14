@@ -1,6 +1,11 @@
 require 'spec_helper'
 
 describe TestRunsController do
+  include Devise::TestHelpers
+
+  before(:each) do
+    sign_in(Factory.create(:user))
+  end
 
   def mock_test_run(stubs={})
     @mock_test_run ||= mock_model(TestRun, stubs).as_null_object

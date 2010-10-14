@@ -1,4 +1,4 @@
-New::Application.routes.draw do |map|
+Mustard::Application.routes.draw do |map|
   devise_for :users
 
   resources :test_targets

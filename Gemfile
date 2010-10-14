@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.0.0.rc'
+gem 'rails', '3.0.0'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -28,11 +28,11 @@ gem "haml", ">=3.0.14"
 gem "inherited_resources", ">=1.1.2"
 gem "will_paginate", ">=3.0.pre"
 gem "devise", ">=1.1.rc2"
-gem "formtastic", :git => "git://github.com/justinfrench/formtastic.git", :branch => "rails3"
+gem "formtastic", :git => "git://github.com/justinfrench/formtastic.git", :branch => "1.1-stable"
 gem "friendly_id", "~>3.0"
 gem "compass", ">= 0.10.1"
-gem "rspec", ">=2.0.0.alpha.11", :group => :test
-gem "rspec-rails", ">=2.0.0.alpha.11", :group => :test
+gem "rspec", ">=2.0.0.rc", :group => :test
+gem "rspec-rails", ">=2.0.0.rc", :group => [:development, :test]
 gem "remarkable", ">=4.0.0.alpha4", :group => :test
 gem "remarkable_activemodel", ">=4.0.0.alpha4", :group => :test
 gem "remarkable_activerecord", ">=4.0.0.alpha4", :group => :test
