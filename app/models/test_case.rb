@@ -9,6 +9,10 @@ class TestCase < ActiveRecord::Base
   has_many :test_targets
   has_many :targets, :through => :test_targets
   
+  def self.run_frequencies
+    [["on demand", ""], ["10 minutes", "10.minutes"], ["1 hour", "1.hour"], ["5 hours", "5.hours"], ["every day", "1.day"], ["every week", "1.week"]]
+  end
+
   def test_target_set=(value)
     self.test_targets.destroy_all
     value.each do |target_id|
@@ -33,6 +37,7 @@ class TestCase < ActiveRecord::Base
         self.test_runs.create!(:job_id => page.session_id, :target => target, :error => "#{e.message}\n\n#{e.backtrace}")
       ensure
         self.selenium_driver.close_current_browser_session if self.selenium_driver
+        self.delay(:run_at => eval(self.run_frequency).from_now).run if !self.run_frequency.blank?
       end
     end
   end

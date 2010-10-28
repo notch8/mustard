@@ -18,6 +18,10 @@
   .field
     = f.label :test_target_set, "Targets"
     = f.collection_select(:test_target_set, Target.all, :id, :name, {}, {:multiple => true, :size => 20})
+  .field
+    = f.label :run_frequency
+    = f.select :run_frequency, ::TestCase.run_frequencies
+
   = f.hidden_field :user_id, :value => current_user.id
   .actions
     = f.submit 'Save'
