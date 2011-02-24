@@ -33,6 +33,7 @@ class TestCase < ActiveRecord::Base
         # end
         self.test_runs.create!(:job_id => page.session_id, :target => target)
       rescue Exception => e
+        Exceptional.handle(e)
         logger.error "============== test case: #{self.id} target: #{target.id} had an error\n#{e.message}\n#{e.backtrace}"
         self.test_runs.create!(:job_id => page.session_id, :target => target, :error => "#{e.message}\n\n#{e.backtrace}")
       ensure
