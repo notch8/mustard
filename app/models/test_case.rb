@@ -32,10 +32,12 @@ class TestCase < ActiveRecord::Base
           self.instance_eval(self.content)
         # end
         self.test_runs.create!(:job_id => page.session_id, :target => target)
+        UserMailer.deliver_success(self)
       rescue Exception => e
         Exceptional.handle(e)
         logger.error "============== test case: #{self.id} target: #{target.id} had an error\n#{e.message}\n#{e.backtrace}"
         self.test_runs.create!(:job_id => page.session_id, :target => target, :error => "#{e.message}\n\n#{e.backtrace}")
+        UserMailer.deliver_failure(self)
       ensure
         self.selenium_driver.close_current_browser_session if self.selenium_driver
         self.delay(:run_at => self.run_frequency.to_i.from_now).run unless self.run_frequency.blank?
