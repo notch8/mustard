@@ -55,7 +55,7 @@ class TestCase < ActiveRecord::Base
                     '"job-name": "' + self.name + '"}',
       :url => self.account.base_url,
       :timeout_in_second => self.account.timeout)
-      
+  
     @selenium_driver.start_new_browser_session
   end
   

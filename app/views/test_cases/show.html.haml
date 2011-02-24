@@ -9,6 +9,9 @@
     %th &nbsp;
   %tfoot
   %tbody
+    %tr
+      %td= "Pending #{@pending}"
+      %td= "Running #{@running}"
     - @test_case.test_runs.all(:order => "created_at DESC").each do |run|
       %tr{:class => run.error.blank? ? '' : 'failed' }
         %td=run.job_id
