@@ -55,6 +55,7 @@ class TestCase < ActiveRecord::Base
                     '"os": "' + target.os + '",' +
                     '"browser": "' + target.browser + '",' +
                     '"browser-version": "' + target.browser_version + '",' +
+                    '"public": true,' +
                     '"job-name": "' + self.name + '"}',
       :url => self.account.base_url,
       :timeout_in_second => self.account.timeout)
