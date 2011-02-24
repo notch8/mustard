@@ -10,8 +10,8 @@
   %tfoot
   %tbody
     %tr
-      %td= "Pending #{Delayed::Job.count(:conditions => ["locked_at IS NULL AND handler LIKE ? AND handler LIKE ?", "%TestCase%", "% id: #{@test_case.id}\n%"])}"
-      %td= "Running #{Delayed::Job.count(:conditions => ["locked_at IS NOT NULL AND handler LIKE ? AND handler LIKE ?", "%TestCase%", "% id: #{@test_case.id}\n%"])}"
+      %td= "Pending #{Delayed::Job.count(:conditions => ["locked_at IS NULL AND handler LIKE ? AND handler LIKE ?", "%TestCase%", "% id: \"#{@test_case.id}\"\n%"])}"
+      %td= "Running #{Delayed::Job.count(:conditions => ["locked_at IS NOT NULL AND handler LIKE ? AND handler LIKE ?", "%TestCase%", "% id: \"#{@test_case.id}\"\n%"])}"
     - @test_case.test_runs.all(:order => "created_at DESC").each do |run|
       %tr{:class => run.error.blank? ? '' : 'failed' }
         %td=run.job_id
