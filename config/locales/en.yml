@@ -3,3 +3,9 @@
 
 en:
   hello: "Hello world"
+
+  user_mailer:
+    failure:
+      subject: "[Mustard] Failure of a test run"
+    success:
+      subject: "[Mustard] Success of a test run"
