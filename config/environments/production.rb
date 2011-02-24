@@ -1,6 +1,9 @@
 Mustard::Application.configure do
   # Settings specified here will take precedence over those in config/environment.rb
-  config.action_mailer.default_url_options[:host] = "mustard.heroku.com"
+  
+  config.action_mailer.default_url_options = {
+    :host => "mustard.heroku.com"
+  }
   # The production environment is meant for finished, "live" apps.
   # Code is not reloaded between requests
   config.cache_classes = true
